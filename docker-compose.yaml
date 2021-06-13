@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  backend:
+    build:
+      context: ./backend/springboot-standalone
+      dockerfile: Dockerfile-spring-boot
+    ports:
+      - "8484:8080"
+    depends_on: 
+      - postgresdb
+
+  postgresdb:
+    build:
+      context: ./backend/database
+      dockerfile: Dockerfile-postgres
+    
