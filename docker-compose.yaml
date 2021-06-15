@@ -6,7 +6,7 @@ services:
       context: ./backend/springboot-standalone
       dockerfile: Dockerfile-spring-boot
     ports:
-      - "8484:8080"
+      - "8080:8080"
     depends_on: 
       - postgresdb
 
@@ -14,4 +14,13 @@ services:
     build:
       context: ./backend/database
       dockerfile: Dockerfile-postgres
+  
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile-react
+    ports:
+      - "3000:3000"
+    depends_on: 
+      - backend
     
