@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
-import './Inicial.css';
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import { Link } from "react-router-dom";
 
 class Inicial extends Component {
   state = {
@@ -24,6 +24,7 @@ class Inicial extends Component {
         {this.state.postagens.map(postagem => (
           <ListItem
             key={postagem.id}
+            button component={Link} to={`/DetalhesPostagem/${postagem.id}`}
           >
             <ListItemText
               primary={postagem.titulo}
